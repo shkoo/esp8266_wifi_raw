@@ -1,3 +1,32 @@
+ARDUINO
+-------
+
+This library was adapted for the Arduino environment from the
+original.  It allows you to read raw wifi packets on the ESP8266
+without the packet size limitations imposed by the sniffer API.
+
+It also supports writing raw packets, but with the Arduino we get the
+wifi_send_pkt_freedom call, which makes this library unnecessary for
+writing.
+
+The implementation wraps some calls inside the closed-source portion
+of the esp8266 core.  Due to this, we need to pass additional linker
+options to do the wrapping magic.
+
+The linker options we need to pass are:
+
+`-Wl,-wrap=ppEnqueueRxq -Wl,-wrap=ppTxPkt`
+
+Unfortunately Arduino doesn't seem to make this easy.  An effective
+but kludgy wat to do this is to manually edit the
+`compiler.c.elf.flags` setting in your platform.txt file, and add them
+there.  Suggestions for better ways of doing this are welcome.
+
+The original README is as follows:
+
+ORIGINAL README
+---------------
+
 This is an experiment attempting to send and receive raw IEEE-802.11 packets from the ESP8266.
 
 This is currently a dirty hack, and not quite perfect.

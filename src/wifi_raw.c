@@ -1,5 +1,5 @@
-#include "netif.h"
-#include "pbuf.h"
+#include <lwip/netif.h>
+#include <lwip/pbuf.h>
 #include "osapi.h"
 #include "mem.h"
 
