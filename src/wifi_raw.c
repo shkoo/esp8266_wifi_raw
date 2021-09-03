@@ -13,7 +13,7 @@
 
 
 static int called = 0;
-static wifi_raw_recv_cb_fn rx_func = NULL;
+static wifi_raw_recv_cb_fn rx_func IRAM_ATTR = NULL;
 
 /* Do not add the ICACHE_FLASH_ATTR attribute here!
    The program randomly hangs and restarts after a
@@ -22,7 +22,7 @@ static wifi_raw_recv_cb_fn rx_func = NULL;
    My guess is that this is some kind of interrupt
    that should execute as fast as possible, and
    ICACHE_FLASH_ATTR stores it in a slower-to-access location... */
-void __wrap_ppEnqueueRxq(void *a)
+ IRAM_ATTR void __wrap_ppEnqueueRxq(void *a)
 {
 	// int i;
 	// for (i = 0; i < 30; i++){
