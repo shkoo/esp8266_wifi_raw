@@ -40,8 +40,8 @@ typedef void (*wifi_raw_recv_cb_fn)(struct RxPacket *);
 #if __cplusplus
 extern "C" {
 #endif
-void ICACHE_FLASH_ATTR wifi_raw_set_recv_cb(wifi_raw_recv_cb_fn rx_fn);
-void ICACHE_FLASH_ATTR wifi_send_raw_packet(void *buf, uint16 len);
+void wifi_raw_set_recv_cb(wifi_raw_recv_cb_fn rx_fn);
+int wifi_send_raw_packet(void *buf, uint16 len);
 #if __cplusplus
 }
 #endif
