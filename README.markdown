@@ -22,6 +22,14 @@ but kludgy wat to do this is to manually edit the
 `compiler.c.elf.flags` setting in your platform.txt file, and add them
 there.  Suggestions for better ways of doing this are welcome.
 
+On MacOS, platform.txt should be
+~/Library/Ardino15/packages/esp8266/hardware/esp8266/3.0.2/platform.txt
+or similar.
+
+On Linux, platform.txt should be
+~/.arduino15/packages/esp8266/hardware/esp8266/3.0.2/platform.txt
+or similar.
+
 The original README is as follows:
 
 ORIGINAL README
